@@ -45,8 +45,7 @@ function startup() {
 
 function clearphoto() {
     let context = canvas.getContext('2d');
-    context.fillStyle = "#F00";
-    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.clearRect(0, 0, canvas.width, canvas.height);
 }
 
 function takepicture() {
