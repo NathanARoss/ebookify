@@ -28,7 +28,7 @@ body, html {
     height: auto;
 }
 
-#capture-button {
+#capture-button, #photo-upload-icon {
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -37,7 +37,16 @@ body, html {
     height: 50px;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    border-radius: 50%;
-    border: solid thick darkgray;
+    border: none;
+    background: url(baseline-camera-24px.svg) center;
+    background-size: cover;
+}
+
+#photo-upload-icon {
+    left: 25px;
+    background-image: url(baseline-photo-24px.svg);
+}
+
+input#photo-upload {
+    display: none;
 }
