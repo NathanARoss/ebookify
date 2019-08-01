@@ -3,19 +3,30 @@ const canvas = document.getElementById('video-frame');
 const context = canvas.getContext('2d');
 const captureButton = document.getElementById('capture-button');
 const uploadButton = document.getElementById('photo-upload');
-const cameraPreview = document.getElementById('camera-preview');
+const debugOutput = document.getElementById('debug');
 
 let streaming = false;
-let stream = null;
 
-navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" }, audio: false })
-    .then(function (_stream) {
-        stream = _stream;
-        video.srcObject = _stream;
+navigator.mediaDevices.getUserMedia({
+    video: {
+        width: 1920,
+        height: 1080,
+        frameRate: 24,
+        facingMode: "environment"
+    },
+    audio: false
+})
+    .then(function (stream) {
+        video.srcObject = stream;
+
+        const camSettings = stream.getVideoTracks()[0].getSettings();
+        const debugText = camSettings.width + "x" + camSettings.height + " @ " + camSettings.frameRate;
+        debugOutput.innerText = debugText;
         video.play();
     })
     .catch(function (err) {
         console.log("An error occurred: " + err);
+        alert("An error occurred: " + err);
     });
 
 video.addEventListener('canplay', function (ev) {

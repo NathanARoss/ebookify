@@ -10,13 +10,12 @@
 </head>
 
 <body>
-    <div id="camera-preview">
-        <video id="video">Video not available.</video>
-        <button id="capture-button"></button>
-        <label id="photo-upload-icon">
-            <input id="photo-upload" type="file" accept="image/*">
-        </label>
-    </div>
+    <video id="video" playsinline>Video not available.</video>
+    <button id="capture-button"></button>
+    <label id="photo-upload-icon">
+        <input id="photo-upload" type="file" accept="image/*">
+    </label>
+    <p id="debug">debug</p>
     <canvas id="video-frame"></canvas>
 </body>
 
